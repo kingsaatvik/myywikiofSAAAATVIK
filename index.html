@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;My Personal Wiki with Persistent Journal&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: Arial, sans-serif; margin: 20px; background:#f7f7f7; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 { text-align:center; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav ul { list-style:none; padding:0; text-align:center; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav ul li { display:inline; margin:0 12px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>a { text-decoration:none; color:#1a73e8; font-weight:600; cursor:pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#content { margin-top:18px; padding:14px; background:#fff; border:1px solid #ddd; min-height:80px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>textarea { width:100%; margin-top:12px; box-sizing:border-box; padding:8px; font-size:14px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.controls { margin-top:8px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button { padding:8px 12px; margin-right:8px; cursor:pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#entries { margin-top:14px; background:#fff; border:1px solid #eee; padding:10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.entry { border-bottom:1px solid #f0f0f0; padding:8px 0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.entry:last-child { border-bottom:none; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.small { font-size:12px; color:#666; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Welcome to My Personal Wiki&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a onclick="showPage('school')"&gt;School&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a onclick="showPage('hobbies')"&gt;Hobbies&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a onclick="showPage('family')"&gt;Family&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;&lt;a onclick="showPage('work')"&gt;Work&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Select a topic above.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2&gt;Edit My Journal&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;textarea id="editor" rows="5" placeholder="Write about your day, thoughts, or anything you want..."&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="controls"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="publish()"&gt;Publish&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="downloadEntries()"&gt;Download Entries&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="clearAll()"&gt;Clear All Entries&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="entries"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3 class="small"&gt;Saved Entries&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="entriesList"&gt;&lt;p class="small"&gt;No entries yet.&lt;/p&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const pages = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>school: "I study at The Heritage School Rohini and love mathematics.",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>hobbies: "I enjoy cycling, coding, and playing.",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>family: "I live with my parents and my grandfather + my big sister.",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>work: "I want to be a surgeon someday!"</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const STORAGE_KEY = 'mywiki_entries_v1';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>renderEntries();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const savedView = localStorage.getItem('mywiki_last_view');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (savedView &amp;&amp; pages[savedView]) showPage(savedView);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showPage(page) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const content = document.getElementById('content');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content.innerHTML = "&lt;h2&gt;" + page.charAt(0).toUpperCase() + page.slice(1) + "&lt;/h2&gt;&lt;p&gt;" + pages[page] + "&lt;/p&gt;";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localStorage.setItem('mywiki_last_view', page);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function publish() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const editor = document.getElementById('editor');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const text = editor.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (text === "") return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const entries = loadEntries();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const entry = { text: text, time: new Date().toISOString() };</p>
+<p class="p1"><span class="Apple-converted-space">      </span>entries.unshift(entry);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>editor.value = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>renderEntries();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('content').innerHTML = "&lt;h2&gt;My Journal Entry&lt;/h2&gt;&lt;p&gt;" + escapeHtml(text) + "&lt;/p&gt;";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function loadEntries() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const raw = localStorage.getItem(STORAGE_KEY);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return raw ? JSON.parse(raw) : [];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} catch (e) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return [];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderEntries() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const list = document.getElementById('entriesList');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const entries = loadEntries();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!entries.length) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>list.innerHTML = '&lt;p class="small"&gt;No entries yet.&lt;/p&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>list.innerHTML = entries.map((e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const time = new Date(e.time).toLocaleString();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return '&lt;div class="entry"&gt;&lt;div class="small"&gt;' + time + '&lt;/div&gt;&lt;div&gt;' + escapeHtml(e.text) + '&lt;/div&gt;&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}).join('');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function clearAll() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!confirm('Clear all saved journal entries?')) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localStorage.removeItem(STORAGE_KEY);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>renderEntries();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('content').innerHTML = '&lt;p&gt;Select a topic above.&lt;/p&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function downloadEntries() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const entries = loadEntries();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (!entries.length) return alert('No entries to download.');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const text = entries.map(e =&gt; new Date(e.time).toLocaleString() + "\n" + e.text + "\n\n").join('');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const blob = new Blob([text], { type: 'text/plain' });</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const url = URL.createObjectURL(blob);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const a = document.createElement('a');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>a.href = url;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>a.download = 'mywiki_entries.txt';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.body.appendChild(a);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>a.click();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>a.remove();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>URL.revokeObjectURL(url);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function escapeHtml(str) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return str.replace(/[&amp;&lt;&gt;"']/g, function(m) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return ({'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','"':'&amp;quot;',"'":'&amp;#39;'})[m];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
